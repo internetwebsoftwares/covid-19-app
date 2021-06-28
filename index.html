@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      description="A covid-19 web application for the most accurate information."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      *,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+    </style>
+    <title>Covid-19 Information center</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/"><h2>Covid-19 Information Center</h2></a>
+      <div>
+        <select name="country" id="countryDropBox"></select>
+      </div>
+    </header>
+    <nav class="nav-bar">
+      <ul>
+        <a class="active" href="#section1"> Statistics </a>
+        <a href="#section2"> Symptoms </a>
+        <a href="#section3"> Treatment </a>
+        <a href="#section4"> Tests </a>
+        <a href="./more-info.html"> Guidelines </a>
+      </ul>
+    </nav>
+    <div class="loader d-none"></div>
+    <main>
+      <section id="section1" class="statistic-section">
+        <div class="left-side"></div>
+        <div class="right-side">
+          <div class="right-side-inner">
+            <p>
+              From JHU CSSE Covid-19 Data - Last updated 1 day ago (last 365
+              days results)
+            </p>
+            <br />
+            <div class="chips">
+              <button id="casesChip" class="chip active-chip">Cases</button>
+              <button id="recoveredChip" class="chip">Recovered</button>
+              <button class="chip">Deaths</button>
+            </div>
+            <br />
+            <canvas id="myCanvas"></canvas>
+          </div>
+        </div>
+      </section>
+      <section class="bg-purple" id="section01">
+        <center class="province">
+          <select id="provinceDropDown">
+            
+          </select>
+          <div id="provinceDetails"></div>
+        </center>
+      </section>
+      <section class="bg-yellow" id="section02">
+      </section>
+      <section id="section2" class="information-section">
+        <div style="padding: 3rem;border-radius: 5px;" class="container bg-purple">
+          <div>
+            <div>
+              <h3>HOW IT SPREADS</h3>
+              <hr />
+              <p>
+                The virus that causes COVID-19 is mainly transmitted through
+                droplets generated when an infected person coughs, sneezes, or
+                exhales. These droplets are too heavy to hang in the air, and
+                quickly fall on floors or surfaces. You can be infected by
+                breathing in the virus if you are within close proximity of
+                someone who has COVID-19, or by touching a contaminated surface
+                and then your eyes, nose or mouth.
+              </p>
+            </div>
+            <br />
+            <br />
+            <div>
+              <h3>Symptoms</h3>
+              <hr />
+              <p>
+                COVID-19 affects different people in different ways. Most
+                infected people will develop mild to moderate illness and
+                recover without hospitalization.
+              </p>
+              <br />
+              <p><b>Most common symptoms:</b></p>
+              <ul>
+                <li>Fever</li>
+                <li>Dry cough</li>
+                <li>Tiredness</li>
+              </ul>
+              <br />
+              <p><b>Less common symptoms:</b></p>
+              <ul>
+                <li>Aches and pains</li>
+                <li>Sore throat</li>
+                <li>Diarrhoea</li>
+                <li>Headache</li>
+                <li>Loss of taste or smell</li>
+              </ul>
+              <br />
+              <p><b>Serious symptoms:</b></p>
+              <ul>
+                <li>Difficulty breathing or shortness of breath</li>
+                <li>Chest pain or pressure</li>
+                <li>Loss of speech or movement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section3">
+        <div style="padding: 3rem;border-radius: 5px;" class="bg-pink container">
+          <h3>Treatments</h3>
+          <hr />
+          <h4>Self-care:</h4>
+          <p><b>Asymptomatic cases, mild cases of COVID-19:</b></p>
+          <br />
+          <ol>
+            <li>Isolate yourself in a well ventilated room.</li>
+            <li>
+              Use a triple layer medical mask, discard mask after 8 hours of use
+              or earlier if they become wet or visibly soiled. In the event of a
+              caregiver entering the room, both caregiver and patient may
+              consider using N 95 mask.
+            </li>
+            <li>
+              Mask should be discarded only after disinfecting it with 1% Sodium
+              Hypochlorite.
+            </li>
+            <li>
+              Take rest and drink a lot of fluids to maintain adequate
+              hydration.
+            </li>
+            <li>
+              Ensure cleaning of surfaces in the room that are touched often
+              (tabletops, doorknobs, handles, etc.) with 1% hypochlorite
+              solution.
+            </li>
+            <li>Monitor temperature daily.</li>
+            <li>Monitor oxygen saturation with a pulse oximeter daily.</li>
+          </ol>
+          <br />
+          <h4>Instructions for caregivers:</h4>
+          <hr />
+          <ol>
+            <li>
+              Mask: The caregiver should wear a triple layer medical mask. N95
+              mask may be considered when in the same room with the ill person.
+            </li>
+            <li>
+              Hand hygiene: Hand hygiene must be ensured following contact with
+              ill person or patient’s immediate environment.
+            </li>
+            <li>
+              Exposure to patient/patient’s environment: Avoid direct contact
+              with body fluids of the patient, particularly oral or respiratory
+              secretions. Use disposable gloves while handling the patient.
+              Perform hand hygiene before and after removing gloves.
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section id="section4">
+        <div class="inner">
+          <h3>What test should you book for COVID-19?</h3>
+          <br />
+          <hr />
+          <div class="tests">
+            <div class="test test1">
+              <h4>RT-PCR Test</h4>
+              <hr />
+              <p>
+                The RT-PCR Test is a gold standard test to detect active
+                coronavirus infection.
+              </p>
+              <hr />
+              <p><b>It is highly recommended to take this test if you:</b></p>
+              <br />
+              <ol>
+                <li>
+                  Have flu-like symptoms and think it could be the coronavirus
+                </li>
+                <li>
+                  Have been experiencing flu-like symptoms for a few days along
+                  with breathlessness
+                </li>
+                <li>Have come in close contact with a COVID-19 case</li>
+                <li>
+                  Have an elderly or person with chronic conditions at home who
+                  is experiencing COVID-19 like symptoms
+                </li>
+              </ol>
+            </div>
+            <div class="test test2">
+              <h4>COVID-19 Antibody IgG Test</h4>
+              <hr />
+              <p>
+                The Antibody Test detects any past occurrence of the infection
+                by looking for COVID-19 antibodies
+              </p>
+              <hr />
+              <p><b>Who should take the test ?</b></p>
+              <br />
+              <ol>
+                <li>
+                  Think you contracted the coronavirus in the past and have
+                  already recovered
+                </li>
+                <li>
+                  Want to know if your body has encountered the infection and
+                  made antibodies against the coronavirus
+                </li>
+                <li>
+                  Have recovered from COVID-19 and want to help people who need
+                  plasma therapye
+                </li>
+              </ol>
+            </div>
+            <div class="test test3">
+              <h4>Covid Home Care Basic</h4>
+              <hr />
+              <p>
+                The COVID Home Care Basic package offers 34 tests (Includes CRP,
+                CBC with NLR, ESR, Blood urea and more) that give important
+                clues about the various health parameters.
+              </p>
+              <hr />
+              <p><b>This test is recommended if you:</b></p>
+              <br />
+              <ol>
+                <li>
+                  Have been diagnosed with COVID-19 and need to understand how
+                  COVID-19 has impacted your health
+                </li>
+                <li>
+                  Are getting COVID-19 care at home and notice any worsening of
+                  the symptoms
+                </li>
+                <li>
+                  Have been advised by the doctor to check your biomarkers
+                </li>
+              </ol>
+            </div>
+            <div class="test test4">
+              <h4>COVID Home Care Complete</h4>
+              <hr />
+              <p>
+                The COVID Home Care Complete package offers 41 tests (Includes
+                D-Dimer, IL-6, HbA1c, Serum electrolytes, etc., in addition to
+                CRP, CBC with NLR, ESR, and more) that give important clues
+                about the various health parameters.
+              </p>
+              <hr />
+              <p><b>This test is recommended if you:</b></p>
+              <br />
+              <ol>
+                <li>
+                  Have been diagnosed with COVID-19 and need to understand how
+                  COVID-19 has impacted your health
+                </li>
+                <li>
+                  Are getting COVID-19 care at home and notice any worsening of
+                  the symptoms
+                </li>
+                <li>
+                  Have been advised by the doctor to check your biomarkers
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section5">
+        <div style="padding: 2rem;border-radius: 5px;" class="inner bg-yellow">
+          <h2>Self diagnose your lungs</h2>
+          <br>
+          <hr>
+          <br>
+          <div class="info">
+            <img src="oxymeter.jpeg" alt="oxymeter-image" />
+            <div>
+              <h2>Oxymeter:</h2>
+              <br>
+            <p>
+              Oxymeter SpO2 in the range of 70%–99% with the accuracy of ±2%.
+              The normal resting pulse rate in humans is between 60 and 100
+              beats per minute (bpm), but it is also dependent on the fitness
+              level, body weight, emotional state, medication, body position,
+              and the involvement in physical activities.
+            </div>
+            </p>
+            </div>
+        
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Covid-19 Information center &copy; 2021. All rights reserved.</p>
+    </footer>
+    <!-- Chart js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.0/dist/chart.min.js"></script>
+    <script src="countries.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
